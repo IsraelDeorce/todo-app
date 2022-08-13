@@ -42,7 +42,7 @@ export const todoList = createModel<RootModel>()({
         });
       }
     },
-    doTask(id: number, rootState) {
+    completeTask(id: number, rootState) {
       const tasks: ITask[] = rootState.todoList.tasks.map((t: ITask) => {
         if (t.id === id) {
           t.isComplete = true;

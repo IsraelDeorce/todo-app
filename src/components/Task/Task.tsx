@@ -19,7 +19,7 @@ function Task({ id, description, isComplete }: TaskProps) {
     if (isComplete) {
       dispatch.todoList.undoTask(id);
     } else {
-      dispatch.todoList.doTask(id);
+      dispatch.todoList.completeTask(id);
     }
   }
 

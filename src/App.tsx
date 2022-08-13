@@ -7,12 +7,12 @@ import Task from './components/Task';
 import './App.css';
 
 function App() {
-  const [taskDesc, setTaskDesc] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
   const tasks = useSelector((state: RootState) => state.todoList.tasks);
   const dispatch = useDispatch();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTaskDesc(event.target.value);
+    setDescription(event.target.value);
   }
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -22,7 +22,7 @@ function App() {
   };
 
   const handleCkick = () => {
-    dispatch.todoList.addTask({ taskDesc });
+    dispatch.todoList.addTask(description);
   };
 
   return (
@@ -36,7 +36,7 @@ function App() {
             autoComplete="off"
             placeholder="Type to add new tasks"
             className="task"
-            value={taskDesc}
+            value={description}
             onChange={handleChange}
             onKeyDown={handleKeyDown}
           />
@@ -49,7 +49,7 @@ function App() {
         </div>
       </header>
       {tasks.map(({ id, description, isComplete }) =>
-        <Task key={id} description={description} isComplete={isComplete} />)}
+        <Task key={id} id={id} description={description} isComplete={isComplete} />)}
     </div>
   );
 }

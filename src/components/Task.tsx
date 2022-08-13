@@ -1,17 +1,21 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import './Task.css';
 
 interface TaskProps {
+  id: number;
   description: string,
   isComplete: boolean,
 }
 
-function Task({ description, isComplete }: TaskProps) {
+function Task({ id, description, isComplete }: TaskProps) {
   const [checked, setChecked] = useState<boolean>(isComplete);
+  const dispatch = useDispatch();
 
   const handleDelete = () => {
     console.log('Delete button clicked!');
+    dispatch.todoList.removeTask(id);
   }
 
   return (

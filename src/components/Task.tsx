@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import './Task.css';
@@ -10,12 +9,18 @@ interface TaskProps {
 }
 
 function Task({ id, description, isComplete }: TaskProps) {
-  const [checked, setChecked] = useState<boolean>(isComplete);
   const dispatch = useDispatch();
 
   const handleDelete = () => {
     console.log('Delete button clicked!');
     dispatch.todoList.removeTask(id);
+  }
+  const handleCheck = () => {
+    if (isComplete) {
+      dispatch.todoList.undoTask(id);
+    } else {
+      dispatch.todoList.doTask(id);
+    }
   }
 
   return (
@@ -23,10 +28,10 @@ function Task({ id, description, isComplete }: TaskProps) {
       <input
         name="citizen"
         type="checkbox"
-        checked={checked}
-        onChange={() => setChecked(!checked)}
+        checked={isComplete}
+        onChange={handleCheck}
       />
-      {checked
+      {isComplete
         ? <strong>{description}</strong>
         : <div>{description}</div>
       }

@@ -23,6 +23,7 @@ function App() {
 
   const handleCkick = () => {
     dispatch.todoList.addTask(description);
+    setDescription('');
   };
 
   return (

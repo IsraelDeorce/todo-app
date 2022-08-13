@@ -1,14 +1,15 @@
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { ITask } from './models';
+import { RootState } from './store';
 import Task from './components/Task';
 
 import './App.css';
 
 function App() {
   const [taskDesc, setTaskDesc] = useState<string>('');
-  const [countId, setCountId] = useState<number>(1);
-  const [taskList, setTasksList] = useState<ITask[]>([]);
+  const tasks = useSelector((state: RootState) => state.todoList.tasks);
+  const dispatch = useDispatch();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTaskDesc(event.target.value);
@@ -21,19 +22,13 @@ function App() {
   };
 
   const handleCkick = () => {
-    const newTask = {
-      id: countId,
-      description: taskDesc,
-      isComplete: false,
-    };
-    setCountId(countId + 1);
-    setTasksList([...taskList, newTask]);
+    dispatch.todoList.addTask({ taskDesc });
   };
 
   return (
     <div className="app">
       <header>
-        <h1>{`Todo List (${taskList.length})`}</h1>
+        <h1>{`Todo List (${tasks.length})`}</h1>
         <div className="task-input">
           <input
             name="task"
@@ -53,7 +48,7 @@ function App() {
           </button>
         </div>
       </header>
-      {taskList.map(({ id, description, isComplete }) =>
+      {tasks.map(({ id, description, isComplete }) =>
         <Task key={id} description={description} isComplete={isComplete} />)}
     </div>
   );

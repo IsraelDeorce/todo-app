@@ -6,12 +6,14 @@ import Task from '../Task/Task';
 import './TasksList.css';
 
 function TasksList() {
-  const tasks = useSelector((state: RootState) => state.todoList.tasks);
+  const { tasks, isHidingTasks } = useSelector((state: RootState) => state.todoList);
 
   return (
     <>
-      {tasks.map(({ id, description, isComplete }) =>
-        <Task key={id} id={id} description={description} isComplete={isComplete} />)}
+      {tasks.map(({ id, description, isComplete }) => {
+        if (isHidingTasks && isComplete) return null
+        return <Task key={id} id={id} description={description} isComplete={isComplete} />
+      })}
     </>
   )
 }

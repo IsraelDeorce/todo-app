@@ -4,12 +4,14 @@ import { ITask, RootModel } from '.';
 type TodoListState = {
   idCount: number,
   tasks: ITask[],
+  isHidingTasks: boolean,
 };
 
 export const todoList = createModel<RootModel>()({
   state: {
     idCount: 0,
     tasks: [],
+    isHidingTasks: false,
   } as TodoListState, // initial state
   reducers: {
     // handle state changes with pure functions
@@ -28,6 +30,7 @@ export const todoList = createModel<RootModel>()({
         isComplete: false,
       };
       dispatch.todoList.update({
+        ...rootState.todoList,
         idCount,
         tasks: [...rootState.todoList.tasks, task],
       });
@@ -54,7 +57,7 @@ export const todoList = createModel<RootModel>()({
         tasks,
       });
     },
-    undoTask(id, rootState) {
+    undoTask(id: number, rootState) {
       const tasks: ITask[] = rootState.todoList.tasks.map((t: ITask) => {
         if (t.id === id) {
           t.isComplete = false;
@@ -66,5 +69,11 @@ export const todoList = createModel<RootModel>()({
         tasks,
       });
     },
+    changeHidingTasks(_, rootState) {
+      dispatch.todoList.update({
+        ...rootState.todoList,
+        isHidingTasks: !rootState.todoList.isHidingTasks,
+      });
+    }
   }),
 });

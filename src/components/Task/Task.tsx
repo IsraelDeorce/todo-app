@@ -26,7 +26,6 @@ function Task({ id, description, isComplete }: TaskProps) {
   return (
     <div className="task">
       <input
-        name="citizen"
         type="checkbox"
         checked={isComplete}
         onChange={handleCheck}

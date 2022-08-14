@@ -1,3 +1,38 @@
-.task-input {
+.todo-header {
+  margin-bottom: 12px;
+}
+
+.todo-menu {
+  background-image: linear-gradient(rgb(192,233,239), rgb(200,199,247));
+  padding: 12px;
+  margin-bottom: 8px;
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-bottom: 30px;
+}
+
+.todo-menu h2 {
+  flex: 1 1 150px;
+}
+
+.task-input-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.task-input {
+  margin-right: 8px;
+  border: none;
+  padding: 12px;
+  flex: 1;
+}
+
+.task-add-button {
+  background-color: #337ab7;
+  color: white;
+  border: none;
+  min-width: 90px;
+  min-height: 40px;
+  padding: 0 12px;
 }

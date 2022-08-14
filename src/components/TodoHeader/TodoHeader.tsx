@@ -25,34 +25,45 @@ function TodoHeader() {
   };
 
   const handleAddTask = () => {
-    dispatch.todoList.addTask(description);
-    setDescription('');
+    if (description) {
+      dispatch.todoList.addTask(description);
+      setDescription('');
+    }
   };
 
   return (
-    <header>
-      <h1>{`Todo List (${tasks.length})`}</h1>
-      <input
-        id="hide-tasks"
-        name="hide-tasks"
-        type="checkbox"
-        checked={isHidingTasks}
-        onClick={handleHideTasks}
-      />
-      <label htmlFor="hide-tasks">Hide Completed Tasks</label>
-      <div className="task-input">
+    <header className="todo-header">
+      <div className="todo-menu">
+        <h2>{`Todo List (${tasks.length})`}</h2>
+        <label>
+          <input
+            id="hide-tasks"
+            name="hide-tasks"
+            type="checkbox"
+            checked={isHidingTasks}
+            onClick={handleHideTasks}
+          />
+          Hide Completed Tasks
+
+        </label>
+      </div>
+      <div className="task-input-container">
         <input
-          id="input-task"
-          name="input-task"
+          id="task-input"
+          name="task-input"
           type="text"
           autoComplete="off"
           placeholder="Type to add new tasks"
-          className="task"
+          className="task-input"
           value={description}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
         />
-        <button type="button" onClick={handleAddTask}>
+        <button
+          id="task-add-button"
+          type="button"
+          className="task-add-button"
+          onClick={handleAddTask}>
           Add a Task
         </button>
       </div>

@@ -34,7 +34,7 @@ function TodoHeader() {
   return (
     <header className="todo-header">
       <div className="todo-menu">
-        <h2>{`Todo List (${tasks.length})`}</h2>
+        <h2>{`Todo List (${tasks.filter((t) => !t.isComplete).length})`}</h2>
         <label>
           <input
             id="hide-tasks"

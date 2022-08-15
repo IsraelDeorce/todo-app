@@ -23,4 +23,4 @@ export const renderWithRematchStore = ({ ui, mockStates, mockStore }: IrenderWit
   return render(ui, {
     wrapper: ({ children }) => <Provider store={mockStore || store}>{children}</Provider>,
   });
-}
+};

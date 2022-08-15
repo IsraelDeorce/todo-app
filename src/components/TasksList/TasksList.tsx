@@ -11,11 +11,11 @@ function TasksList() {
   return (
     <div data-testid="task-list">
       {tasks.map(({ id, description, isComplete }) => {
-        if (isHidingTasks && isComplete) return null
-        return <Task key={id} id={id} description={description} isComplete={isComplete} />
+        if (isHidingTasks && isComplete) return null;
+        return <Task key={id} id={id} description={description} isComplete={isComplete} />;
       })}
     </div>
-  )
+  );
 }
 
 export default TasksList;

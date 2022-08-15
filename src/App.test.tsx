@@ -11,7 +11,7 @@ describe('App', () => {
     const taskButton: HTMLButtonElement = screen.getByText('Add task');
     userEvent.type(taskInput, 'Lorem Ipsum');
     userEvent.click(taskButton);
-    const taskList: HTMLDivElement = screen.getByTestId('task-list')
+    const taskList: HTMLDivElement = screen.getByTestId('task-list');
     expect(within(taskList).getByText('Lorem Ipsum')).toBeInTheDocument();
   });
 
@@ -20,7 +20,7 @@ describe('App', () => {
     const taskInput: HTMLInputElement = screen.getByPlaceholderText('Type to add new tasks');
     userEvent.type(taskInput, 'Lorem Ipsum');
     userEvent.keyboard('{enter}');
-    const taskList: HTMLDivElement = screen.getByTestId('task-list')
+    const taskList: HTMLDivElement = screen.getByTestId('task-list');
     expect(within(taskList).getByText('Lorem Ipsum')).toBeInTheDocument();
   });
 
@@ -59,7 +59,7 @@ describe('App', () => {
           isHidingTasks: false,
         },
       };
-    })
+    });
 
     it('completes a task when the user clicks on the unmarked task checkbox', () => {
       renderWithRematchStore({ ui: <App />, mockStates });
@@ -104,5 +104,5 @@ describe('App', () => {
       userEvent.click(deleteIcon);
       expect(screen.queryByTestId('task-1')).not.toBeInTheDocument();
     });
-  })
-})
+  });
+});

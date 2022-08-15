@@ -67,7 +67,7 @@ function TodoHeader() {
         </button>
       </div>
     </header>
-  )
+  );
 }
 
 export default TodoHeader;

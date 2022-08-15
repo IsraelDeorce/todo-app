@@ -7,7 +7,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test:cov": "npm test -- --coverage"
+    "test:cov": "npm test -- --coverage --watchAll"
   },
   "dependencies": {
     "@rematch/core": "^2.2.0",
@@ -41,6 +41,11 @@
         "statements": 90
       }
     },
+    "coveragePathIgnorePatterns": [
+      "src/index.tsx",
+      "src/react-app-env.d.ts",
+      "src/utils/testUtils.tsx"
+    ],
     "coverageReporters": ["text"]
   },
   "eslintConfig": {

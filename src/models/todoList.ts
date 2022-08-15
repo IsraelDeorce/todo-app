@@ -38,12 +38,10 @@ export const todoList = createModel<RootModel>()({
     removeTask(id: number, rootState) {
       const allTasks: ITask[] = rootState.todoList.tasks;
       const tasks: ITask[] = allTasks.filter((t: ITask) => t.id !== id);
-      if (tasks.length !== allTasks.length) {
-        dispatch.todoList.update({
-          ...rootState.todoList,
-          tasks,
-        });
-      }
+      dispatch.todoList.update({
+        ...rootState.todoList,
+        tasks,
+      });
     },
     completeTask(id: number, rootState) {
       const tasks: ITask[] = rootState.todoList.tasks.map((t: ITask) => {

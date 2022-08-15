@@ -1,7 +1,7 @@
 import { createModel } from '@rematch/core';
 import { ITask, RootModel } from '.';
 
-type TodoListState = {
+export type TodoListState = {
   idCount: number,
   tasks: ITask[],
   isHidingTasks: boolean,

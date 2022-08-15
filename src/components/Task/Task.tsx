@@ -25,7 +25,7 @@ function Task({ id, description, isComplete }: TaskProps) {
 
   const descClass = isComplete ? 'task-desc task-complete' : 'task-desc';
   return (
-    <div className="task">
+    <div data-testid={`task-${id}`} className="task">
       <input
         type="checkbox"
         className="task-checkbox"
@@ -37,7 +37,8 @@ function Task({ id, description, isComplete }: TaskProps) {
         onClick={handleDelete}
         className="task-remove"
         version="1.1"
-        xmlns="http://www.w3.org/2000/svg">
+        xmlns="http://www.w3.org/2000/svg"
+        role="application">
         <line x1="1" y1="11" x2="11" y2="1" stroke="black" strokeWidth="2" />
         <line x1="1" y1="1" x2="11" y2="11" stroke="black" strokeWidth="2" />
       </svg>

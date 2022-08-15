@@ -15,6 +15,11 @@
   flex: 1;
 }
 
+.task-complete {
+  text-decoration: line-through;
+  color: #9A9A9A;
+}
+
 .task-remove {
   padding: 5px;
   width: 12px;

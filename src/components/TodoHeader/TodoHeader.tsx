@@ -41,10 +41,9 @@ function TodoHeader() {
             name="hide-tasks"
             type="checkbox"
             checked={isHidingTasks}
-            onClick={handleHideTasks}
+            onChange={handleHideTasks}
           />
           Hide Completed Tasks
-
         </label>
       </div>
       <div className="task-input-container">
@@ -64,7 +63,7 @@ function TodoHeader() {
           type="button"
           className="task-add-button"
           onClick={handleAddTask}>
-          Add a Task
+          Add task
         </button>
       </div>
     </header>

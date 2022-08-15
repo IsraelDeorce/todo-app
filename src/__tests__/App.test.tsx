@@ -1,8 +1,8 @@
 import userEvent from '@testing-library/user-event';
 import { screen, within } from '@testing-library/react';
 
-import { renderWithRematchStore } from './utils/testUtils';
-import App from './App';
+import { renderWithRematchStore } from '../utils/testUtils';
+import App from '../App';
 
 describe('App', () => {
   it('adds a task when user adds a description and clicks on the "Add task" button', () => {

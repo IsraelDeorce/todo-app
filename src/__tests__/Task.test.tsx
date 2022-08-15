@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
 
-import { renderWithRematchStore } from '../../utils/testUtils';
-import Task from './Task';
+import { renderWithRematchStore } from '../utils/testUtils';
+import Task from '../components/Task/Task';
 
 describe('Task', () => {
   it('renders the task checkbox checked when task in complete', () => {

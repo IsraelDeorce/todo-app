@@ -3,6 +3,9 @@
 $ npx create-react-app todo-app --teample typescript
 $ npm install redux react-redux redux-persist @rematch/core @rematch/persist
 
+Run the docker image
+$ docker build -t todo-app .
+$ docker run -p 3000:3000 --rm todo-app
 
 ## Available Scripts
 

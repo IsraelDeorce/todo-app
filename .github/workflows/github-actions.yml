@@ -38,20 +38,3 @@ jobs:
 
       - name: Unit Tests
         run: npm run test:cov:ci
-      
-      - name: Jest Coverage Report
-        uses: ArtiomTr/jest-coverage-report-action@v2
-        with:
-          skip-step: all
-          coverage-file: report.json
-          base-coverage-file: report.json
-
-  coverage:
-    permissions:
-      checks: write
-      pull-requests: write
-      contents: write
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-

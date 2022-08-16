@@ -52,7 +52,9 @@
       "src/utils/testUtils.tsx"
     ],
     "coverageReporters": [
-      "text"
+      "text",
+      "json",
+      "html"
     ]
   },
   "eslintConfig": {

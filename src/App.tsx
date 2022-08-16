@@ -6,8 +6,10 @@ import './App.css';
 function App() {
   return (
     <div className="app">
-      <TodoHeader />
-      <TasksList />
+      <div className="app-todo">
+        <TodoHeader />
+        <TasksList />
+      </div>
     </div>
   );
 }

@@ -2,7 +2,11 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  padding: 20px;
+}
+
+.app-todo {
   max-width: 768px;
-  margin: 20px;
-  padding: 10px;
+  width: 100%;
+  align-self: center;
 }

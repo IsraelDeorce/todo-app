@@ -44,14 +44,4 @@ jobs:
         with:
           skip-step: all
           coverage-file: coverage/coverage-final.json
-          base-coverage-file: report.json
-
-  coverage:
-    permissions:
-      checks: write
-      pull-requests: write
-      contents: write
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-
+          base-coverage-file: coverage/coverage-final.json

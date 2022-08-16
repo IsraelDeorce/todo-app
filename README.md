@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+TEST
+
 $ npx create-react-app todo-app --teample typescript
 $ npm install redux react-redux redux-persist @rematch/core @rematch/persist
 

@@ -2,13 +2,16 @@
   "name": "todo-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://israeldeorce.github.io/todo-app",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "test:cov": "npm test -- --coverage --watchAll",
-    "lint": "eslint ."
+    "test:cov:ci": "npm test -- --coverage --watchAll=false",
+    "lint": "eslint .",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@rematch/core": "^2.2.0",
@@ -20,6 +23,7 @@
     "@types/node": "^16.11.48",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
+    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",
@@ -47,7 +51,9 @@
       "src/react-app-env.d.ts",
       "src/utils/testUtils.tsx"
     ],
-    "coverageReporters": ["text"]
+    "coverageReporters": [
+      "text"
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -55,8 +61,15 @@
       "react-app/jest"
     ],
     "rules": {
-      "quotes": [1, "single", "avoid-escape"],
-      "jsx-quotes": [1, "prefer-double"],
+      "quotes": [
+        1,
+        "single",
+        "avoid-escape"
+      ],
+      "jsx-quotes": [
+        1,
+        "prefer-double"
+      ],
       "semi": 1
     }
   },

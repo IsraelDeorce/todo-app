@@ -12,10 +12,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      checks: write
-      pull-requests: write
-      contents: write
 
     strategy:
       matrix:
@@ -42,6 +38,3 @@ jobs:
 
       - name: Unit Tests
         run: npm run test:cov:ci
-      
-      - name: Jest Coverage Report
-        uses: ArtiomTr/jest-coverage-report-action@v2

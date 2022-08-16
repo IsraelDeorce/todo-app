@@ -53,7 +53,8 @@
     ],
     "coverageReporters": [
       "text",
-      "json"
+      "json",
+      "html"
     ]
   },
   "eslintConfig": {
